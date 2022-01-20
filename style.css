@@ -33,13 +33,6 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-.scroll-loading img {
-  position: fixed;
-  top: 93%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .image-container {
   margin: 10px 30%;
 }
