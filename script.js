@@ -1,3 +1,5 @@
+import { count } from "./secretSession";
+
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 
@@ -7,7 +9,6 @@ let totalImages = 0;
 let photosArray = [];
 
 let count = 5;
-const apiKey = "PUucQh6XlYPuiygiZiTlUDss3tKVqVC9Ks3GIP8t9OI";
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
 function imageLoaded() {
