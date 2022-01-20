@@ -1,5 +1,3 @@
-import { apiKey } from "./secretSession";
-
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 
@@ -8,7 +6,8 @@ let imagesLoaded = 0;
 let totalImages = 0;
 let photosArray = [];
 
-let count = 5;
+let count = 10;
+const apiKey = "PUucQh6XlYPuiygiZiTlUDss3tKVqVC9Ks3GIP8t9OI";
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
 function imageLoaded() {
@@ -16,7 +15,6 @@ function imageLoaded() {
   if (imagesLoaded === totalImages) {
     ready = true;
     hideLoader();
-    count = 20;
   }
 }
 
@@ -51,12 +49,6 @@ function displayPhotos() {
   });
 }
 
-// Loader functions
-const showloaderOnScrollEnd = () => {
-  loader.hidden = false;
-  loader.classList.remove("page-loading");
-};
-
 const hideLoader = () => {
   loader.hidden = true;
 };
@@ -78,16 +70,7 @@ async function getPhotos() {
 
 window.addEventListener("scroll", () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
-    return async () => {
-      try {
-        await getPhotos();
-        showloaderOnScrollEnd();
-      } catch (error) {
-        console.error(error);
-      } finally {
-        hideLoader();
-      }
-    };
+    getPhotos();
   }
 });
 
